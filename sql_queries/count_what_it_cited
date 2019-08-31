@@ -1,0 +1,6 @@
+SELECT master.patent_id, COUNT(citations.citation_id) as cited_by
+
+FROM `patent-data-querying.query_results.master_post_2010_single_author` as master
+  LEFT OUTER JOIN `patent-data-querying.query_results.patent_citations` as citations
+  ON citations.citation_id = master.patent_id
+GROUP BY master.patent_id
